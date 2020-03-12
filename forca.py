@@ -1,6 +1,14 @@
+import random
+
 def jogar():
 
-    palavra_secreta = "uva".upper()
+    arquivo = open("frutas.txt", "r")
+    frutas = []
+    for linha in arquivo:
+        frutas.append(arquivo.readline().strip())
+    palavra_secreta = frutas[random.randrange(0, len(frutas))].upper()
+    arquivo.close()
+
     letras_acertadas = ["_" for letra in palavra_secreta]
     enforcou = False
     acertou = False
